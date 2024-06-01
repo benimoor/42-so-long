@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "so_long.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
@@ -27,7 +28,7 @@ typedef struct s_get_next_line	t_get_gnl_line;
 struct s_get_next_line
 {
 	char	*buffer;
-	char	*fd_buffer[OPEN_MAX];
+	char	*fd_buffer[MAX_OPEN_FILES];
 };
 
 char	*gnl_get_line(char *buffer);

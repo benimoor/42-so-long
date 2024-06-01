@@ -107,15 +107,15 @@ int	move(int key, t_game *game)
 	if (!game->count)
 		game->count = 1;
 	printf("MOVE: %d\n", game->count);
-	if (key == KEY_ARROW_RIGHT || key == KEY_D)
+	if (key == RIGHT || key == D)
 		move_x(game, 1);
-	else if (key == KEY_ARROW_LEFT || key == KEY_A)
+	else if (key == LEFT || key == A)
 		move_x(game, -1);
-	else if (key == KEY_ARROW_UP || key == KEY_W)
+	else if (key == UP || key == W)
 		move_y(game, -1);
-	else if (key == KEY_ARROW_DOWN || key == KEY_S)
+	else if (key == DOWN || key == S)
 		move_y(game, 1);
-	else if (key == KEY_ESC)
+	else if (key == ESC)
 		free_and_close(game);
 	return (0);
 }

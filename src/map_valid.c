@@ -20,6 +20,7 @@ void	norm_fix_for_gm(int *a, int fd, char **tmp, char **map)
 			*map = ft_gnl_strjoin(*map, *tmp);
 		if ((int)(ft_strlen(*tmp)) != a[1])
 		{
+			printf ("%d : %u", (int)(ft_strlen(*tmp)), a[1]);
 			write(2, "ya qu ara\n", 10);
 			free(*tmp);
 			free(*map);
@@ -60,11 +61,11 @@ char	**get_map(char *path)
 	if (get_next_line(fd, &tmp) > 0)
 	{
 		map = ft_gnl_strjoin(map, tmp);
+		a[1] = ft_strlen(tmp);
 		free(tmp);
 	}
 	else
 		return (NULL);
-	a[1] = ft_strlen(tmp);
 	norm_fix_for_gm(a, fd, &tmp, &map);
 	res = ft_split(map, '\n');
 	free(map);

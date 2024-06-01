@@ -56,6 +56,7 @@ int	main(int ac, char *av[])
 			exit(1);
 		}
 		game.coin = get_coin(game.map);
+		game.count = 0;
 		start_game(&game);
 	}
 	else

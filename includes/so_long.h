@@ -13,11 +13,20 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+#if defined(__APPLE__) && defined(__MACH__)
+    #define MAX_OPEN_FILES OPEN_MAX
+	# include "mlx.h"
+#elif defined(__linux__)
+    #define MAX_OPEN_FILES FOPEN_MAX
+	# include "../minilibx-linux/mlx.h"
+#else
+    #error "Unsupported OS"
+#endif
+
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include "get_next_line.h"
-# include "mlx.h"
 # include "keys.h"
 
 # define COIN_PATH "./src/img/final/coin.xpm"
